@@ -1,6 +1,4 @@
 class BankAccount:
-    int_rate = 0
-    balance= 0
     all_accounts = []
     def __init__(self, int_rate, balance): 
         self.int_rate = int_rate
@@ -27,11 +25,11 @@ class BankAccount:
     def yield_interest(self):
         self.balance += self.balance*self.int_rate
         return self
-
+    
     @classmethod
     def all_instances(cls):
         for account in cls.all_accounts:
-            print(account)
+            account.display_account_info()
 
 
 harini = BankAccount(0.01,0)
@@ -39,5 +37,5 @@ pk = BankAccount(0.02,0)
 
 harini.deposit(200).deposit(300).deposit(400).withdraw(300).yield_interest().display_account_info()
 pk.deposit(200).deposit(1300).withdraw(50).withdraw(10).withdraw(300).withdraw(100).yield_interest().display_account_info()
-
+print("=" * 80)
 BankAccount.all_instances()
